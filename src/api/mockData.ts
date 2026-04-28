@@ -54,10 +54,10 @@ export function generateAdherence(days = 90): DayAdherence[] {
     if (i < 5) rate = 0.4 + Math.random() * 0.5;
     else if (i < 14) rate = 0.7 + Math.random() * 0.3;
     else rate = 0.8 + Math.random() * 0.2;
-    if (noise < 0.04) rate = 0; // missed full day
+    if (noise < 0.04) rate = 0;
     const scheduled = 4;
     const taken = Math.round(rate * scheduled);
-    arr.push({ date, taken, scheduled, rate: scheduled === 0 ? -1 : taken / scheduled });
+    arr.push({ date, taken, scheduled, rate: taken / scheduled });
   }
   return arr;
 }
